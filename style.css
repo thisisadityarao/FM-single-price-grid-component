@@ -1,6 +1,194 @@
 :root {
+  --white: hsl(0, 0%, 100%);
   --cyan: hsl(179, 62%, 43%);
+  --light-cyan: hsl(179, 63%, 46%);
   --bright-yellow: hsl(71, 73%, 54%);
+  --button-yellow: hsl(71, 80%, 45%);
   --light-gray: hsl(204, 43%, 93%);
+  --lighter-gray: hsl(204deg 43% 93% / 70%);
   --grayish-blue: hsl(218, 22%, 67%);
+}
+
+body {
+  font-family: "Karla", system-ui, sans-serif;
+  font-size: 1rem;
+  padding: 1.5rem;
+  background-color: var(--light-gray);
+}
+
+main {
+  min-height: 100svh;
+  display: grid;
+  place-content: center;
+}
+
+.container {
+  display: grid;
+  max-width: 26.563rem; /* 425px */
+  padding: 1rem;
+  border-radius: 5rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+  letter-spacing: 0.1px;
+  font-weight: 700;
+}
+
+:where(.community, .reasons) > * + * {
+  margin-top: 1.25rem;
+}
+
+.community {
+  background-color: var(--white);
+  padding-inline: 1.5rem;
+  padding-block: 2rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.community h2 {
+  color: var(--cyan);
+}
+
+.community .accent {
+  color: var(--bright-yellow);
+  font-weight: 700;
+  font-size: 1.025rem;
+  line-height: 1.25;
+}
+
+.community p:not(.accent) {
+  line-height: 1.65;
+  color: var(--grayish-blue);
+}
+
+.subscription {
+  padding-inline: 1.5rem;
+  padding-block: 2rem;
+  background-color: var(--cyan);
+  color: var(--white);
+}
+
+.subscription .currency {
+  display: flex;
+  align-items: center;
+  color: var(--light-gray);
+  margin-top: 1rem;
+}
+
+.subscription .currency__num {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-inline-end: 0.8rem;
+}
+
+.subscription .currency__text {
+  color: var(--lighter-gray);
+}
+
+.subscription p:not(.currency) {
+  margin-bottom: 1.75rem;
+}
+
+.subscription button {
+  display: inline-block;
+  border: none;
+  padding: 0.8em 2em;
+  margin: 0;
+  margin-inline: auto;
+  text-decoration: none;
+  background: var(--bright-yellow);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, transform 150ms ease;
+  appearance: none;
+  min-height: 44px;
+  width: 100%;
+  border-radius: 0.25rem;
+  box-shadow: 0px 3.4px 3.4px rgba(0, 0, 0, 0.07),
+    0px 8.7px 8.7px rgba(0, 0, 0, 0.048), 0px 17.7px 17.7px rgba(0, 0, 0, 0.039),
+    0px 36.5px 36.5px rgba(0, 0, 0, 0.031), 0px 100px 100px rgba(0, 0, 0, 0.022);
+}
+
+.subscription button:hover,
+.subscription button:focus {
+  background: var(--button-yellow);
+}
+
+.subscription button:focus {
+  outline: 1px solid #fff;
+  outline-offset: -4px;
+}
+
+.subscription button:active {
+  transform: scale(0.99);
+}
+
+.reasons {
+  background-color: var(--light-cyan);
+  padding-inline: 1.5rem;
+  padding-block: 2rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.reasons h2 {
+  color: #fff;
+}
+
+.reasons p {
+  color: var(--light-gray);
+}
+
+/****** DESKTOP STYLES ******/
+
+@media screen and (min-width: 48rem) {
+  .container {
+    max-width: 45rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: max-content;
+  }
+
+  .community {
+    grid-column: 1/-1;
+    padding-inline-start: 2.5rem;
+    padding-block: 2.25rem;
+  }
+
+  .community h2 {
+    font-size: 1.75rem;
+    letter-spacing: -1px;
+  }
+
+  .community .accent {
+    margin-top: 1.5rem;
+    font-size: 1.25rem;
+  }
+
+  .community p:not(.accent) {
+    margin-top: 0.75rem;
+    max-width: 56ch;
+  }
+
+  .subscription {
+    border-bottom-left-radius: 0.5rem;
+    padding-inline: 2.5rem;
+  }
+
+  .subscription p:not(.currency) {
+    margin-bottom: 2rem;
+  }
+
+  .reasons {
+    border-bottom-left-radius: 0;
+    padding-inline: 2.5rem;
+  }
+
+  .reasons p {
+    font-size: 0.95rem;
+  }
 }
