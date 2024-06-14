@@ -124,7 +124,7 @@ h2 {
   font-weight: 700;
 }
 
-:is(.community, .subscription, .reasons) {
+:where(.community, .subscription, .reasons) {
   padding-inline: 1.5rem;
   padding-block: 2rem;
 }
